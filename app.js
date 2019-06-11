@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -19,8 +20,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
+app.get('/', function(req, res, next) {
+  res.render('index',{title:"Express Demo"});
+});
+
+app.get('/feedback', function(req, res, next) {
+  res.render('feedback',{title:"feedback"});
+});
+
+
+function processFormData(req,res,next){
+  res.render('dataprocess',
+     {title:"dataprocess",url:req.body.url, coms:req.body.theComments});
+}
+
+app.post('/feedback');
+app.post('/processform', processFormData);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

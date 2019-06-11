@@ -1,0 +1,15 @@
+<%- include('header') -%>
+<%- include('menu') -%>
+    <div class="Fluid jumbotron">
+        <h1>Feedback Page</h1>
+        <p>Please add all kinds of advice for the game!</p>
+    </div>
+    <hr>
+    <div class="Fluid jumbotron">
+      <form method="post" action="/processform">
+        URL: <input type="text" name="url"> <br>
+        comments: <textarea name="theComments"></textarea>
+        <input type="submit">
+      </form>
+    </div>
+<%- include('footer') -%>
