@@ -32,11 +32,11 @@ app.get('/feedback', function(req, res, next) {
 
 function processFormData(req,res,next){
   res.render('dataprocess',
-     {title:"dataprocess",url:req.body.url, coms:req.body.theComments});
+     {title:"dataprocess",name:req.body.name, ideas:req.body.ideas});
 }
 
 app.post('/feedback');
-app.post('/processform', processFormData);
+app.post('/dataprocess', processFormData);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

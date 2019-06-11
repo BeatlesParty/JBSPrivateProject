@@ -1,13 +1,10 @@
-<%- include('bootheader') -%>
-<%- include('menubar') -%>
+<%- include('header') -%>
+<%- include('menu') -%>
     <div class="jumbotron">
         <h1>Global Webpage Comment Form</h1>
         <p>add comments to any page on the web ...</p>
     </div>
-
-    You entered the following ..<br>
-
-    The URL was: <%= url %><br>
-    The comments were: <br> <%= coms %>
-
-<%- include('bootfooter') -%>
+    You entered the following.. <hr>
+    The Username was:    <%= name %> <hr>
+    The Feedbacks were:  <%= ideas %><hr>
+<%- include('footer') -%>
