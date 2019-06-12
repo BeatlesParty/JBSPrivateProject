@@ -1,15 +1,16 @@
 <%- include('header') -%>
 <%- include('menu') -%>
-    <div class="Fluid jumbotron">
+    <div class="jumbotron" style="background-color:#8A2BE2">
         <h1>Feedback Page</h1>
         <p>Please add all kinds of advice for the game!</p>
     </div>
-    <hr>
-    <div class="Fluid jumbotron">
+      <img src="images/strike.png" alt="a"width="100%">
+    <div class="jumbotron" >
       <form method="post" action="/dataprocess">
-        Username: <input type="text" name="name"> <br>
+        Username: <input type="text" name="name"> <hr>
         Feedback: <textarea name="ideas"></textarea>
         <input type="submit">
       </form>
     </div>
+    <hr>
 <%- include('footer') -%>
