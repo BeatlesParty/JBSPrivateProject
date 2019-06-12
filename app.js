@@ -7,6 +7,15 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const mongoose = require( 'mongoose' );
+mongoose.connect( 'mongodb://localhost/tankworld' );
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("we are connected!!!")
+});
+
+const  commentController = require('./controllers/commentController.js')
 var app = express();
 
 
@@ -22,23 +31,36 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', function(req, res, next) {
-  res.render('index',{title:"Express Demo"});
+  res.render('index',{title:"TW Home"});
 });
 
 app.get('/feedback', function(req, res, next) {
   res.render('feedback',{title:"feedback"});
 });
 
+app.get('/D02', function(req, res, next) {
+  res.render('D02',{title:"D02"});
+});
+
 
 function processFormData(req,res,next){
-  res.render('dataprocess',
-     {title:"dataprocess",name:req.body.name, ideas:req.body.ideas});
+  res.render('formdata',
+     {title:"Form Data",url:req.body.url, coms:req.body.theComments})
 }
 
-app.post('/feedback');
-app.post('/dataprocess', processFormData);
+app.post('/processform', commentController.saveComment)
+
+app.get('/showComments', commentController.getAllComments)
+
+//app.post('/feedback');
+//app.post('/dataprocess', processFormData);
+//app.post('/d02');
+
+
+
 
 // catch 404 and forward to error handler
+
 app.use(function(req, res, next) {
   next(createError(404));
 });
