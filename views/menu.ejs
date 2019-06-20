@@ -15,6 +15,21 @@
       <li class="nav-item">
         <a class="nav-link" href="/D02">D02<span class="sr-only">(current)</span></a>
       </li>
+<<<<<<< Updated upstream
+=======
+      <li class="nav-item">
+        <a class="nav-link" href="/Q01">Q01<span class="sr-only">(current)</span></a>
+      </li>
+      <% if (loggedIn) { %>
+      <li class="nav-item">
+        <a class="nav-link active" href="/logout"> Logout</a>
+      </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link active" href="/auth/google"> Login</a>
+        </li>
+        <% }  %>
+>>>>>>> Stashed changes
     </ul>
   </div>
 </nav>

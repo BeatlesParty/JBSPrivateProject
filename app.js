@@ -41,6 +41,9 @@ app.get('/feedback', function(req, res, next) {
 app.get('/D02', function(req, res, next) {
   res.render('D02',{title:"D02"});
 });
+app.get('/Q01', function(req, res, next) {
+  res.render('Q01',{title:"Q01"});
+});
 
 
 function processFormData(req,res,next){
